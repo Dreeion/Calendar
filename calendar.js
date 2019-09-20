@@ -2,7 +2,6 @@ function setup() {
     var m = month();
     var y = year();
     direction = 0;
-    var nbJoursRestant = 0;
   /* --- Calendrier ---*/
   GenererCalendrier(m,y,0);
   /* --- Formulaires ---*/
@@ -12,7 +11,7 @@ function setup() {
   Pnom.style('margin-left','20px');
   Pnom.style('font-weight','bold');
   
-  var inpNom = createInput('','required').size(AUTO, 35); 
+  var inpNom = createInput('','required').size(AUTO, 35);
   inpNom.style('margin','2');
   inpNom.style('margin-left','10');
   inpNom.style('margin-bottom','24');
@@ -76,13 +75,6 @@ function setup() {
   button.style('border-width', '2px');
   button.style('border-style', 'solid');
   button.style('background-color', '#cce3ce');
-   
-  var Pselection = createP('Prendre rendez-vous pour le Lundi 16 Septembre 2019 de 13h45 à 14h45.');
-  Pselection.style('margin','0px');
-  Pselection.style('margin-left','20px');
-  Pselection.style('font-weight','bold');
-  Pselection.style('z-index','3');
-  Pselection.position(255, 460);
 
   var dtDispo = createP('Dates disponible').position(400,AUTO);
   dtDispo.style('margin','0px');
@@ -91,43 +83,58 @@ function setup() {
   dtDispo.position(400, 55);
   dtDispo.style('z-index','3');
   
-  var horrairesDispo = createP('Horraires disponibles');
-  horrairesDispo.style('margin','0px');
-  horrairesDispo.style('margin-left','20px');
-  horrairesDispo.style('font-weight','bold');
-  horrairesDispo.position(745, 92);
-  horrairesDispo.style('z-index','3');
+  var horairesDispo = createP('Horaires disponibles');
+  horairesDispo.style('margin','0px');
+  horairesDispo.style('margin-left','20px');
+  horairesDispo.style('font-weight','bold');
+  horairesDispo.position(745, 92);
+  horairesDispo.style('z-index','3');
+  
+  var Pselection = createP('chargement en cours');
+  Pselection.style('margin','0px');
+  Pselection.style('margin-left','20px');
+  Pselection.style('font-weight','bold');
+  Pselection.style('z-index','3');
+  Pselection.position(255, 460);
+  Pselection.id('phrase');
+  phrase.remove();
   
   button.mousePressed();
   
 }
 
 function enleverMois(){
-	var m = month();
-    var y = year();	effacerPage();
-	GenererCalendrier(m,y,-1);
+  var m = month();
+    var y = year(); effacerPage();
+  GenererCalendrier(m,y,-1);
 
 }
 
 function ajouterMois(){
-	var m = month();
+  var m = month();
     var y = year();
-	effacerPage();
-	GenererCalendrier(m,y,1);
+  effacerPage();
+  GenererCalendrier(m,y,1);
 }
 
 function effacerPage() {
-	PPage.remove();buttonG.remove();buttonD.remove();
-	day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
-	day7.remove();day8.remove();day9.remove();day10.remove();day11.remove();day12.remove();
-	day13.remove();day14.remove();day15.remove();day16.remove();day17.remove();day18.remove();
-	day19.remove();day20.remove();day21.remove();day22.remove();day23.remove();day24.remove();
-	day25.remove();day26.remove();day27.remove();day28.remove();
-	if (typeof(day29) !== 'undefined' ){day29.remove();}
-	if (typeof(day30) !== 'undefined' ){day30.remove();}
-	if (typeof(day31) !== 'undefined' ){day31.remove();}
-	
-	
+  PPage.remove();buttonG.remove();buttonD.remove();
+  day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
+  day7.remove();day8.remove();day9.remove();day10.remove();day11.remove();day12.remove();
+  day13.remove();day14.remove();day15.remove();day16.remove();day17.remove();day18.remove();
+  day19.remove();day20.remove();day21.remove();day22.remove();day23.remove();day24.remove();
+  day25.remove();day26.remove();day27.remove();day28.remove();
+  if (typeof(day29) !== 'undefined' ){day29.remove();}
+  if (typeof(day30) !== 'undefined' ){day30.remove();}
+  if (typeof(day31) !== 'undefined' ){day31.remove();}
+  
+  
+}
+
+function selectionjour() {
+    
+    
+    
 }
 
 function myInputEvent() {
@@ -188,10 +195,10 @@ function GenererCalendrier(m,y,c){
     m = m + direction;
     i = 0;
     for (m;m > 12 || m <1;) {
-    	if (m>12){m=m-12;y=y+1;
-    	}
-    	if (m<1){m=m+12;y=y-1;
-    	}
+      if (m>12){m=m-12;y=y+1;
+      }
+      if (m<1){m=m+12;y=y-1;
+      }
     }
 
     i = 1;
@@ -208,19 +215,19 @@ function GenererCalendrier(m,y,c){
     
     
     var PPage = createP(afficherMois(m) + ' ' + annee );
-	  PPage.style('margin','0px');
-	  PPage.style('margin-left','20px');
-	  PPage.style('font-weight','bold');
-	  PPage.style('z-index','3');
-	  PPage.position(500, 90);
-	  PPage.id('PPage');
+    PPage.style('margin','0px');
+    PPage.style('margin-left','20px');
+    PPage.style('font-weight','bold');
+    PPage.style('z-index','3');
+    PPage.position(500, 90);
+    PPage.id('PPage');
     
     
     for (var yc=0; yc<6;){
         for (var xc=0; xc<7; xc=xc+1){
-        	if ( yc==0 && xc<nbJoursTotal){exist=true;}
-        	if (!exist){
-        		
+          if ( yc==0 && xc<nbJoursTotal){exist=true;}
+          if (!exist){
+            
                 button = createButton(i);
                 button.position(xc*42+430, yc*47+150);
                 button.style('z-index','3');
@@ -231,39 +238,52 @@ function GenererCalendrier(m,y,c){
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
                 button.id('day' + i);
-                i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}            
+                i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
+                button.mousePressed(selectionjour);
                 
             }
             exist=false;
         }
         yc=yc+1;
     }
+    
+       
+       
+    var Pselection = createP('Prendre rendez-vous pour le Lundi 16' + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
+  Pselection.style('margin','0px');
+  Pselection.style('margin-left','20px');
+  Pselection.style('font-weight','bold');
+  Pselection.style('z-index','3');
+  Pselection.position(255, 460);
+  Pselection.id('phrase');
+  phrase.remove();
+  
 }
 
 function buttonExist(y,m){
-	mois=0;
-	annee=2018;
-	nbJoursTotal=0;
-	nbDecal = 0;
-	nbMois =  m + (y - 2019)*12;
-	
-	for (var i = 0;i<nbMois;i++){
-		mois=mois+1;
-		
-		if(mois>12){
-			mois=1;
-			annee=annee+1;
-			}
-		
-		if (i===nbMois-1){nbDecal = nbJoursTotal}
-		nbJoursTotal = nbJoursTotal + nb_Jours(mois,annee);
-		
-		if (nbJoursTotal>6){nbJoursTotal=nbJoursTotal%7;}
-		 
-		
-	}
-	
-	return nbDecal;
+  mois=0;
+  annee=2018;
+  nbJoursTotal=0;
+  nbDecal = 0;
+  nbMois =  m + (y - 2019)*12;
+  
+  for (var i = 0;i<nbMois;i++){
+    mois=mois+1;
+    
+    if(mois>12){
+      mois=1;
+      annee=annee+1;
+      }
+    
+    if (i===nbMois-1){nbDecal = nbJoursTotal}
+    nbJoursTotal = nbJoursTotal + nb_Jours(mois,annee);
+    
+    if (nbJoursTotal>6){nbJoursTotal=nbJoursTotal%7;}
+     
+    
+  }
+  
+  return nbDecal;
 }
 
 function afficherMois(m){
@@ -295,4 +315,5 @@ function nb_Jours(m,y){
     if (m===10){return 31;}
     if (m===11){return 30;}
     if (m===12){return 31;}
+  
 }
