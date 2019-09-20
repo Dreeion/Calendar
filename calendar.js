@@ -1,9 +1,10 @@
 function setup() { 
     var m = month();
     var y = year();
+    var d = day();
     direction = 0;
   /* --- Calendrier ---*/
-  GenererCalendrier(m,y,0);
+  GenererCalendrier(m,y,0,d);
   /* --- Formulaires ---*/
   
   var Pnom = createP('Nom*');
@@ -97,16 +98,18 @@ function setup() {
 
 function enleverMois(){
   var m = month();
+  var d = day();
     var y = year(); effacerPage();
-  GenererCalendrier(m,y,-1);
+  GenererCalendrier(m,y,-1,d);
 
 }
 
 function ajouterMois(){
   var m = month();
+  var d = day();
     var y = year();
   effacerPage();
-  GenererCalendrier(m,y,1);
+  GenererCalendrier(m,y,1,d);
 }
 
 function effacerPage() {
@@ -124,6 +127,15 @@ function effacerPage() {
 }
 
 function selectionJour() {
+	 m = month();
+	 y= year();
+	 d="";
+	 var char = "";
+	 char = this.id().split('');
+	 if (char[4]==null){char[4]=" "}
+	 d=(char[3]+char[4]);
+	 effacerPage();
+	 GenererCalendrier(m,y,0,d);
 }
 
 function selectionHorraire(){
@@ -133,8 +145,9 @@ function myInputEvent() {
   console.log('you are typing: ', this.value());
 }
 
+// --------------------------------------------------GenererCalendrier--------------------------------------- \\
 
-function GenererCalendrier(m,y,c){
+function GenererCalendrier(m,y,c,d){
    
   var cnv = createCanvas(600, 500).position(400, 50);;
   fill(255,255,255,0);
@@ -149,7 +162,6 @@ function GenererCalendrier(m,y,c){
   Pselection.style('z-index','3');
   Pselection.position(255, 460);
   Pselection.id('phrase');
-  
   
   
   buttonG = createButton('<--');
@@ -224,8 +236,8 @@ function GenererCalendrier(m,y,c){
     
     
     for (var yc=0; yc<6;){
-    	if ( yc==0 && xc<nbJoursTotal){exist=true;}
     	for (var xc=0; xc<7; xc=xc+1){
+    	if ( yc==0 && xc<nbJoursTotal){exist=true;}
           if (!exist){
             
                 button = createButton(i);
@@ -268,7 +280,7 @@ function GenererCalendrier(m,y,c){
     
     
    phrase.remove(); 
-    var Pselection = createP('Prendre rendez-vous pour le Lundi 16' + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
+    var Pselection = createP('Prendre rendez-vous pour le Lundi '+ d + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
   Pselection.style('margin','0px');
   Pselection.style('margin-left','20px');
   Pselection.style('font-weight','bold');
@@ -334,5 +346,16 @@ function nb_Jours(m,y){
     if (m===10){return 31;}
     if (m===11){return 30;}
     if (m===12){return 31;}
+  
+}
+
+function Jours(m,y){
+    if (d===1){return "lundi";}
+    if (d===2){return "mardi";}
+    if (d===3){return "mercredi";}
+    if (d===4){return "jeudi";}
+    if (d===5){return "vendredi";}
+    if (d===6){return "samedi";}
+    if (d===7){return "dimanche";}
   
 }
