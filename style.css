@@ -1,0 +1,17 @@
+canvas { 
+    position:fixed;
+    top:50; left:400;
+    z-index:1;
+    
+}
+
+#contenu {
+    position:relative;
+    z-index:2; 
+    
+}
+
+
+
+Input {
+}
