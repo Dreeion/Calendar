@@ -12,7 +12,7 @@ function setup() {
   Pnom.style('margin-left','20px');
   Pnom.style('font-weight','bold');
   
-  var inpNom = createInput('','required').size(AUTO, 35);
+  var inpNom = createInput('','required').size(AUTO, 35); 
   inpNom.style('margin','2');
   inpNom.style('margin-left','10');
   inpNom.style('margin-bottom','24');
