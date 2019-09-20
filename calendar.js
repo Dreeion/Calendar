@@ -137,7 +137,6 @@ function selectionJour() {
 	 effacerPage();
 	 GenererCalendrier(m,y,0,d);
 
->>>>>>> branch 'master' of https://github.com/Dreeion/Calendar.git
 }
 
 function selectionHorraire(){
