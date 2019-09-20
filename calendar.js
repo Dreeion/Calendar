@@ -259,7 +259,7 @@ function GenererCalendrier(m,y,c){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
-                button.id('day' + i);
+                button.id('heure' + i);
                 i=i+1; 
                 button.mousePressed(selectionHorraire);
         }
