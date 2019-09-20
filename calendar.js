@@ -87,7 +87,7 @@ function setup() {
   horairesDispo.style('margin','0px');
   horairesDispo.style('margin-left','20px');
   horairesDispo.style('font-weight','bold');
-  horairesDispo.position(745, 92);
+  horairesDispo.position(775, 92);
   horairesDispo.style('z-index','3');
   
   
@@ -140,7 +140,7 @@ function GenererCalendrier(m,y,c){
   fill(255,255,255,0);
   stroke("#cce3ce");strokeWeight(2);
   rect(20, 30, 300, 350, 20);
-  rect(340, 30, 200, 350, 20);
+  rect(340, 30, 250, 350, 20);
 
   var Pselection = createP('chargement en cours');
   Pselection.style('margin','0px');
@@ -250,10 +250,10 @@ function GenererCalendrier(m,y,c){
     i = 1;
     for (var xh=0; xh<2;xh=xh+1){
         for (var yh=0; yh<6; yh=yh+1){
-                button = createButton("00:00");
-                button.position(xh*80+765, yh*47+150);
+                button = createButton("00:00 à 00:00");
+                button.position(xh*115+765, yh*47+150);
                 button.style('z-index','3');
-                button.size(70, 32);
+                button.size(100, 32);
                 button.style('border-radius', '25px');
                 button.style('border-color', '#cce3ce');
                 button.style('border-width', '2px');
