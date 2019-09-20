@@ -229,6 +229,7 @@ function GenererCalendrier(m,y,c){
           if (!exist){
             
                 button = createButton(i);
+                if (yc==0 && nbJoursTotal==0 && i==1){xc=0;}
                 button.position(xc*42+430, yc*47+150);
                 button.style('z-index','3');
                 button.size(32, 32);
