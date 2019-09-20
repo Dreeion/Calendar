@@ -127,6 +127,7 @@ function effacerPage() {
 }
 
 function selectionJour() {
+<<<<<<< HEAD
 	 m = month();
 	 y= year();
 	 d="";
@@ -136,6 +137,9 @@ function selectionJour() {
 	 d=(char[3]+char[4]);
 	 effacerPage();
 	 GenererCalendrier(m,y,0,d);
+=======
+
+>>>>>>> branch 'master' of https://github.com/Dreeion/Calendar.git
 }
 
 function selectionHorraire(){
@@ -221,7 +225,7 @@ function GenererCalendrier(m,y,c,d){
     joursRestant = nbJoursMois%7; 
     
    nbJoursTotal = buttonExist(y+1,m);
-   console.log(afficherMois(m) + "  " , annee ,nbJoursTotal);
+   
     
     if ( yc===0 && xc<buttonExist(y,m)){exist = false;}
     
@@ -278,7 +282,6 @@ function GenererCalendrier(m,y,c,d){
     }
     
     
-    
    phrase.remove(); 
     var Pselection = createP('Prendre rendez-vous pour le Lundi '+ d + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
   Pselection.style('margin','0px');
@@ -333,19 +336,10 @@ function afficherMois(m){
 }
 
 function nb_Jours(m,y){
-    if (m===1){return 31;}
+    if (m===1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12){return 31;}
     if (m===2 && y%4 == 0 && y%100 != 0 || m===2 && y%400 ==0){return 29;}
     if (m===2){return 28;}
-    if (m===3){return 31;}
-    if (m===4){return 30;}
-    if (m===5){return 31;}
-    if (m===6){return 30;}
-    if (m===7){return 31;}
-    if (m===8){return 31;}
-    if (m===9){return 30;}
-    if (m===10){return 31;}
-    if (m===11){return 30;}
-    if (m===12){return 31;}
+    if (m===4 || m==6 || m==9 || m==11){return 30;}
   
 }
 
