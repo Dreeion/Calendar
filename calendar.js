@@ -127,7 +127,6 @@ function effacerPage() {
 }
 
 function selectionJour() {
-<<<<<<< HEAD
 	 m = month();
 	 y= year();
 	 d="";
@@ -137,7 +136,6 @@ function selectionJour() {
 	 d=(char[3]+char[4]);
 	 effacerPage();
 	 GenererCalendrier(m,y,0,d);
-=======
 
 >>>>>>> branch 'master' of https://github.com/Dreeion/Calendar.git
 }
