@@ -1,4 +1,4 @@
-function setup() {
+function setup() { 
     var m = month();
     var y = year();
     direction = 0;
