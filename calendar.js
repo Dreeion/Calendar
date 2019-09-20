@@ -123,10 +123,10 @@ function effacerPage() {
   
 }
 
-function selectionjour() {
-    
-    
-    
+function selectionJour() {
+}
+
+function selectionHorraire(){
 }
 
 function myInputEvent() {
@@ -194,7 +194,6 @@ function GenererCalendrier(m,y,c){
     direction = direction + c;
     
     m = m + direction;
-    i = 0;
     for (m;m > 12 || m <1;) {
       if (m>12){m=m-12;y=y+1;
       }
@@ -225,8 +224,8 @@ function GenererCalendrier(m,y,c){
     
     
     for (var yc=0; yc<6;){
-        for (var xc=0; xc<7; xc=xc+1){
-          if ( yc==0 && xc<nbJoursTotal){exist=true;}
+    	if ( yc==0 && xc<nbJoursTotal){exist=true;}
+    	for (var xc=0; xc<7; xc=xc+1){
           if (!exist){
             
                 button = createButton(i);
@@ -240,15 +239,33 @@ function GenererCalendrier(m,y,c){
                 button.style('background-color', '#FFF');
                 button.id('day' + i);
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
-                button.mousePressed(selectionjour);
+                button.mousePressed(selectionJour);
                 
             }
             exist=false;
         }
         yc=yc+1;
     }
+    i = 1;
+    for (var xh=0; xh<2;xh=xh+1){
+        for (var yh=0; yh<6; yh=yh+1){
+                button = createButton("00:00");
+                button.position(xh*80+765, yh*47+150);
+                button.style('z-index','3');
+                button.size(70, 32);
+                button.style('border-radius', '25px');
+                button.style('border-color', '#cce3ce');
+                button.style('border-width', '2px');
+                button.style('border-style', 'solid');
+                button.style('background-color', '#FFF');
+                button.id('day' + i);
+                i=i+1; 
+                button.mousePressed(selectionHorraire);
+        }
+    }
     
-       
+    
+    
    phrase.remove(); 
     var Pselection = createP('Prendre rendez-vous pour le Lundi 16' + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
   Pselection.style('margin','0px');
