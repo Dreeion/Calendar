@@ -90,14 +90,6 @@ function setup() {
   horairesDispo.position(745, 92);
   horairesDispo.style('z-index','3');
   
-  var Pselection = createP('chargement en cours');
-  Pselection.style('margin','0px');
-  Pselection.style('margin-left','20px');
-  Pselection.style('font-weight','bold');
-  Pselection.style('z-index','3');
-  Pselection.position(255, 460);
-  Pselection.id('phrase');
-  phrase.remove();
   
   button.mousePressed();
   
@@ -118,7 +110,7 @@ function ajouterMois(){
 }
 
 function effacerPage() {
-  PPage.remove();buttonG.remove();buttonD.remove();
+  PPage.remove();buttonG.remove();buttonD.remove();phrase.remove(); 
   day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
   day7.remove();day8.remove();day9.remove();day10.remove();day11.remove();day12.remove();
   day13.remove();day14.remove();day15.remove();day16.remove();day17.remove();day18.remove();
@@ -149,6 +141,15 @@ function GenererCalendrier(m,y,c){
   stroke("#cce3ce");strokeWeight(2);
   rect(20, 30, 300, 350, 20);
   rect(340, 30, 200, 350, 20);
+
+  var Pselection = createP('chargement en cours');
+  Pselection.style('margin','0px');
+  Pselection.style('margin-left','20px');
+  Pselection.style('font-weight','bold');
+  Pselection.style('z-index','3');
+  Pselection.position(255, 460);
+  Pselection.id('phrase');
+  
   
   
   buttonG = createButton('<--');
@@ -248,7 +249,7 @@ function GenererCalendrier(m,y,c){
     }
     
        
-       
+   phrase.remove(); 
     var Pselection = createP('Prendre rendez-vous pour le Lundi 16' + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
   Pselection.style('margin','0px');
   Pselection.style('margin-left','20px');
@@ -256,7 +257,7 @@ function GenererCalendrier(m,y,c){
   Pselection.style('z-index','3');
   Pselection.position(255, 460);
   Pselection.id('phrase');
-  phrase.remove();
+  
   
 }
 
