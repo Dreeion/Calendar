@@ -92,6 +92,13 @@ function setup() {
   horairesDispo.style('font-weight','bold');
   horairesDispo.position(775, 92);
   horairesDispo.style('z-index','3');
+
+  var Psemaine = createP('lun' + " "  +  " "  +  " "  +  'mar        mer   jeu   ven   sam   dim').size(900, 50);
+  Psemaine.style('margin','0px');
+  Psemaine.style('margin-left','20px');
+  Psemaine.style('font-weight','bold');
+  Psemaine.style('z-index','3');
+  Psemaine.position(420, 130);
   
   
   button.mousePressed();
@@ -116,14 +123,15 @@ function ajouterMois(){
 
 function effacerPage() {
   PPage.remove();buttonG.remove();buttonD.remove();phrase.remove(); 
-  day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
+  /*day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
   day7.remove();day8.remove();day9.remove();day10.remove();day11.remove();day12.remove();
   day13.remove();day14.remove();day15.remove();day16.remove();day17.remove();day18.remove();
   day19.remove();day20.remove();day21.remove();day22.remove();day23.remove();day24.remove();
   day25.remove();day26.remove();day27.remove();day28.remove();
   if (typeof(day29) !== 'undefined' ){day29.remove();}
   if (typeof(day30) !== 'undefined' ){day30.remove();}
-  if (typeof(day31) !== 'undefined' ){day31.remove();}
+  if (typeof(day31) !== 'undefined' ){day31.remove();}*/
+  date.remove();
   
   
 }
@@ -134,8 +142,8 @@ function selectionJour() {
 	 d="";
 	 var char = "";
 	 char = this.id().split('');
-	 if (char[4]==null){char[4]=" "}
-	 d=(char[3]+char[4]);
+	 if (char[5]==null){char[5]=" "}
+	 d=(char[4]+char[5]);
 	 effacerPage();
 	 GenererCalendrier(m,y,0,d);
 
@@ -195,15 +203,7 @@ function GenererCalendrier(m,y,c,d){
   
     var mois = afficherMois(m);
     
-  noStroke();fill(0,0,0,255);
-    text( 'lun', 35, 80);
-    text( 'mar', 77, 80);
-    text( 'mer', 119, 80);
-    text( 'jeu', 161, 80);
-    text( 'ven', 203, 80);
-    text( 'sam', 245, 80);
-    text( 'dim', 287, 80);
-    
+     
     stroke("#cce3ce");strokeWeight(2);
     
     exist = true;
@@ -239,7 +239,10 @@ function GenererCalendrier(m,y,c,d){
     PPage.style('z-index','3');
     PPage.position(500, 90);
     PPage.id('PPage');
-    
+
+
+    div1 = createDiv("sjuvgvs") ;
+    div1.id();   
     
     for (var yc=0; yc<6;){
     	for (var xc=0; xc<7; xc=xc+1){
@@ -257,7 +260,8 @@ function GenererCalendrier(m,y,c,d){
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
                 button.style('cursor','pointer');
-                button.id('day' + i);
+                button.id(xc + 'day' + i);
+                button.class("date");
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
                 
