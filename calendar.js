@@ -75,7 +75,7 @@ function setup() {
   inpEmail.input(myInputEvent);
   
   button = createButton('Envoyer');
-  button.position(255, 375);
+  button.position(265, 385);
   button.size(AUTO, 30);
   button.style('border-radius', '10px');
   button.style('border-color', '#cce3ce');
@@ -101,13 +101,59 @@ function setup() {
   horairesDispo.style('z-index','3');
   horairesDispo.style('font-family','Cooper Hewitt');
 
-  var Psemaine = createP('lun mar mer jeu ven sam dim').size(700, 50);
+  var Psemaine = createP('lun mar mer jeu ven sam dim').size(280, 20);
   Psemaine.style('margin','0px');
   Psemaine.style('margin-left','20px');
   Psemaine.style('word-spacing','14px');
-  Psemaine.style('z-index','3');
+  Psemaine.style('z-index','2');
   Psemaine.position(415, 125);
   Psemaine.style('font-family','Cooper Hewitt');
+
+  var Pchamp = createP('Champs Obligatoires *').size(700, 50);
+  Pchamp.style('margin','0px');
+  Pchamp.style('margin-left','20px');
+  Pchamp.style('font-size','15');
+  Pchamp.style('opacity', '0.5');
+  Pchamp.style('z-index','3');
+  Pchamp.position(45, 365);
+  Pchamp.style('font-family','Cooper Hewitt');
+
+
+  ronvert = createButton(' ');
+  ronvert.position(795, 440);
+  ronvert.size(15, 15);
+  ronvert.style('border-radius', '50%');
+  ronvert.style('border-color', '#cce3ce');
+  ronvert.style('border-width', '1px');
+  ronvert.style('border-style', 'solid');
+  ronvert.style('background-color', '#cce3ce');
+
+  var Pdateheuredispo = createP('Dates et heures disponibles').size(700, 50);
+  Pdateheuredispo.style('margin','0px');
+  Pdateheuredispo.style('margin-left','20px');
+  Pdateheuredispo.style('font-size','15');
+  Pdateheuredispo.style('opacity', '0.5');
+  Pdateheuredispo.style('z-index','3');
+  Pdateheuredispo.position(800, 440);
+  Pdateheuredispo.style('fon-faily','Cooper Hewitt');
+
+  ronbleu = createButton(' ');
+  ronbleu.position(595, 440);
+  ronbleu.size(15, 15);
+  ronbleu.style('border-radius', '50%');
+  ronbleu.style('border-color', '#cce3ce');
+  ronbleu.style('border-width', '1px');
+  ronbleu.style('border-style', 'solid');
+  ronbleu.style('background-color', '#cce3ce');
+
+  var Pdateheureselec = createP('Date et heure sélectionnée').size(700, 50);
+  Pdateheureselec.style('margin','0px');
+  Pdateheureselec.style('margin-left','20px');
+  Pdateheureselec.style('font-size','15');
+  Pdateheureselec.style('opacity', '0.5');
+  Pdateheureselec.style('z-index','3');
+  Pdateheureselec.position(600, 440);
+  Pdateheureselec.style('font-family','Cooper Hewitt');
   
   button.mousePressed();
   
@@ -309,7 +355,7 @@ function GenererCalendrier(m,y,c,d){
   Pselection.style('font-weight','bold');
   Pselection.style('font-family','Cooper Hewitt');
   Pselection.style('z-index','3');
-  Pselection.position(255, 460);
+  Pselection.position(270, 480);
   Pselection.id('phrase');
   
   
