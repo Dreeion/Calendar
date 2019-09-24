@@ -142,7 +142,7 @@ function selectionJour() {
 
 }
 
-function selectionHorraire(){
+function selectionHoraire(){
 }
 
 function myInputEvent() {
@@ -268,10 +268,10 @@ function GenererCalendrier(m,y,c,d){
         yc=yc+1;
     }
     i = 1;
-    var horrairesExistant = ['9h00 - 9h45','9h45 - 10h30','10h30 - 11h15','11h15 - 12h00','13h30 - 14h15','14h15 - 15h00','15h00 - 15h45','15h45 - 16h30','16h30 - 17h15','17h15 - 18h00','18h00 - 18h45','18h45 - 19h30'];
+    var HorairesExistant = ['9h00 - 9h45','9h45 - 10h30','10h30 - 11h15','11h15 - 12h00','13h30 - 14h15','14h15 - 15h00','15h00 - 15h45','15h45 - 16h30','16h30 - 17h15','17h15 - 18h00','18h00 - 18h45','18h45 - 19h30'];
     for (var xh=0; xh<2;xh=xh+1){
         for (var yh=0; yh<6; yh=yh+1){
-                button = createButton(horrairesExistant[i-1]);
+                button = createButton(HorairesExistant[i-1]);
                 button.position(xh*112+757, yh*47+150);
                 button.style('z-index','3');
                 button.size(102, 32);
@@ -283,7 +283,7 @@ function GenererCalendrier(m,y,c,d){
                 button.style('cursor','pointer');
                 button.id('heure' + i);
                 i=i+1; 
-                button.mousePressed(selectionHorraire);
+                button.mousePressed(selectionHoraire);
         }
     }
     
