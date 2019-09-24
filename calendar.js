@@ -94,13 +94,13 @@ function setup() {
   horairesDispo.position(775, 92);
   horairesDispo.style('z-index','3');
 
-  var Psemaine = createP('lun' + " "  +  " "  +  " "  +  'mar        mer   jeu   ven   sam   dim').size(900, 50);
+  var Psemaine = createP('lun mar mer jeu ven sam dim').size(700, 50);
   Psemaine.style('margin','0px');
   Psemaine.style('margin-left','20px');
-  Psemaine.style('font-weight','bold');
+  Psemaine.style('word-spacing','14px');
   Psemaine.style('z-index','3');
-  Psemaine.position(420, 130);
-  
+  Psemaine.position(415, 125);
+  Psemaine.style('font-family','Georgia');
   
   button.mousePressed();
   
