@@ -3,6 +3,7 @@ function setup() {
     var y = year();
     var d = day();
     direction = 0;
+    nomJour = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
   /* --- Calendrier ---*/
   GenererCalendrier(m,y,0,d);
   /* --- Formulaires ---*/
@@ -344,16 +345,5 @@ function nb_Jours(m,y){
     if (m===2 && y%4 == 0 && y%100 != 0 || m===2 && y%400 ==0){return 29;}
     if (m===2){return 28;}
     if (m===4 || m==6 || m==9 || m==11){return 30;}
-  
-}
-
-function Jours(m,y){
-    if (d===1){return "lundi";}
-    if (d===2){return "mardi";}
-    if (d===3){return "mercredi";}
-    if (d===4){return "jeudi";}
-    if (d===5){return "vendredi";}
-    if (d===6){return "samedi";}
-    if (d===7){return "dimanche";}
   
 }
