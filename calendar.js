@@ -76,6 +76,7 @@ function setup() {
   button.style('border-width', '2px');
   button.style('border-style', 'solid');
   button.style('background-color', '#cce3ce');
+  button.style('cursor','pointer');
 
   var dtDispo = createP('Dates disponible').position(400,AUTO);
   dtDispo.style('margin','0px');
@@ -174,7 +175,9 @@ function GenererCalendrier(m,y,c,d){
   buttonG.style('border-style', 'solid');
   buttonG.style('background-color', '#FFF');
   buttonG.style('z-index','3');
+  buttonG.style('cursor','pointer');
   buttonG.mousePressed(enleverMois);
+  
   
   
   buttonD = createButton('-->');
@@ -186,6 +189,7 @@ function GenererCalendrier(m,y,c,d){
   buttonD.style('border-style', 'solid');
   buttonD.style('background-color', '#FFF');
   buttonD.style('z-index','3');
+  buttonD.style('cursor','pointer');
   buttonD.mousePressed(ajouterMois);
   
     var mois = afficherMois(m);
@@ -251,6 +255,7 @@ function GenererCalendrier(m,y,c,d){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
+                button.style('cursor','pointer');
                 button.id('day' + i);
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
@@ -272,6 +277,7 @@ function GenererCalendrier(m,y,c,d){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
+                button.style('cursor','pointer');
                 button.id('heure' + i);
                 i=i+1; 
                 button.mousePressed(selectionHorraire);
