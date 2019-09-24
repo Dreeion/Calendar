@@ -4,6 +4,7 @@ function setup() {
     var d = day();
     direction = 0;
     nomJour = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+    nomMois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
   /* --- Calendrier ---*/
   GenererCalendrier(m,y,0,d);
   /* --- Formulaires ---*/
@@ -201,7 +202,7 @@ function GenererCalendrier(m,y,c,d){
   buttonD.style('cursor','pointer');
   buttonD.mousePressed(ajouterMois);
   
-    var mois = afficherMois(m);
+    var mois = nomMois[m];
     
      
     stroke("#cce3ce");strokeWeight(2);
@@ -232,7 +233,7 @@ function GenererCalendrier(m,y,c,d){
     if ( yc===0 && xc<buttonExist(y,m)){exist = false;}
     
     
-    var PPage = createP(afficherMois(m) + ' ' + annee );
+    var PPage = createP(nomMois[m] + ' ' + annee );
     PPage.style('margin','0px');
     PPage.style('margin-left','20px');
     PPage.style('font-weight','bold');
@@ -292,7 +293,7 @@ function GenererCalendrier(m,y,c,d){
     
     
    phrase.remove(); 
-    var Pselection = createP('Prendre rendez-vous pour le Lundi '+ d + ' ' + afficherMois(m) + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
+    var Pselection = createP('Prendre rendez-vous pour le Lundi '+ d + ' ' + nomMois[m] + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
   Pselection.style('margin','0px');
   Pselection.style('margin-left','20px');
   Pselection.style('font-weight','bold');
@@ -327,21 +328,6 @@ function buttonExist(y,m){
   }
   
   return nbDecal;
-}
-
-function afficherMois(m){
-    if (m===1){return '  Janvier';}
-    if (m===2){return '  Février';}
-    if (m===3){return '     Mars';}
-    if (m===4){return '    Avril';}
-    if (m===5){return '      Mai';}
-    if (m===6){return '     Juin';}
-    if (m===7){return '  Juillet';}
-    if (m===8){return '     Aout';}
-    if (m===9){return 'Septembre';}
-    if (m===10){return ' Octobre';}
-    if (m===11){return 'Novembre';}
-    if (m===12){return 'Décembre';}
 }
 
 function nb_Jours(m,y){
