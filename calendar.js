@@ -8,9 +8,10 @@ function setup() {
     nomJour = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
     nomMois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
     HorairesExistant = ['9h00 - 9h45','9h45 - 10h30','10h30 - 11h15','11h15 - 12h00','13h30 - 14h15','14h15 - 15h00','15h00 - 15h45','15h45 - 16h30','16h30 - 17h15','17h15 - 18h00','18h00 - 18h45','18h45 - 19h30'];
+    Phrase = [];
     nomJourAfficher = [];
     DateSelectionner = [];
-    
+    loadPhrase = true;
     
     
     
@@ -192,6 +193,8 @@ function effacerPage() {
   if (typeof(day29) !== 'undefined' ){day29.remove();}
   if (typeof(day30) !== 'undefined' ){day30.remove();}
   if (typeof(day31) !== 'undefined' ){day31.remove();}
+  heure1.remove();heure2.remove();heure3.remove();heure4.remove();heure5.remove();heure6.remove();
+  heure7.remove();heure8.remove();heure9.remove();heure10.remove();heure11.remove();heure12.remove();
   
 }
 
@@ -202,6 +205,7 @@ function selectionJour() {
 	 if (char[4]==null){da=char[3];}
 	 else {da=(char[3]+char[4]);}
 	 effacerPage();
+	 loadPhrase = true;
 	 GenererCalendrier(m,y,0,da,he);
 
 }
@@ -211,7 +215,7 @@ function selectionHoraire() {
 	 char = this.id().split('');
 	 if (char[6]==null){he=char[5];}
 	 else {he=(char[5]+char[6]);}
-	 console.log(he , this.value());
+	 loadPhrase = true;
 	 effacerPage();
 	 GenererCalendrier(m,y,0,da,he);
 
@@ -325,7 +329,6 @@ function GenererCalendrier(m,y,c,d,he){
                 button.style('cursor','pointer');
                 button.id('day' + i);
                 nomJourAfficher[i]=nomJour[xc];
-                console.log(nomJourAfficher[i]);
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
 
@@ -354,10 +357,19 @@ function GenererCalendrier(m,y,c,d,he){
                 button.mousePressed(selectionHoraire);
         }
     }
-    
-    
+   if (loadPhrase){
+	   Phrase[1] = nomJourAfficher[d];
+	   Phrase[2] = d;
+	   Phrase[3] = nomMois[m];
+	   Phrase[4] = annee;
+	   Phrase[5] = HorairesExistant[he-1];
+	   loadPhrase=false
+	   }
    phrase.remove(); 
-  var Pselection = createP('Prendre rendez-vous pour le '+ nomJourAfficher[d] + ' ' + d + ' ' + nomMois[m] + ' ' + annee + ' de ' + HorairesExistant[he-1] +' ?');
+  /*var Pselection = createP('Prendre rendez-vous pour le '+ nomJourAfficher[d] + ' ' + d + ' ' + nomMois[m] + ' ' + annee + ' de ' + HorairesExistant[he-1] +' ?');*/
+  
+  var Pselection = createP('Prendre rendez-vous pour le '+ Phrase[1] + ' ' + Phrase[2] + ' ' + Phrase[3] + ' ' + Phrase[4] + ' de ' + Phrase[5] +' ?');
+  
   Pselection.style('margin','0px');
   Pselection.style('margin-left','20px');
   Pselection.style('font-weight','bold');
@@ -365,6 +377,7 @@ function GenererCalendrier(m,y,c,d,he){
   Pselection.style('z-index','3');
   Pselection.position(270, 480);
   Pselection.id('phrase');
+  
   
   
 }
