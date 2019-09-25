@@ -6,14 +6,13 @@ function setup() {
     he = 1;
     direction = 0;
     nomJour = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
-    nomMois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-    HorairesExistant = ['9h00 - 9h45','9h45 - 10h30','10h30 - 11h15','11h15 - 12h00','13h30 - 14h15','14h15 - 15h00','15h00 - 15h45','15h45 - 16h30','16h30 - 17h15','17h15 - 18h00','18h00 - 18h45','18h45 - 19h30'];
+    nomMois = [' ','Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    HorairesExistant = ['9h00 à 9h45','9h45 à 10h30','10h45 à 11h30','11h30 à 12h30','13h30 à 14h45','14h45 à 15h30','15h45 à 16h30','16h30 à 17h15','17h15 à 18h00','18h00 à 18h45','18h45 à 19h30','19h30 à 20h15'];
     Phrase = [];
     Phrase[1]= ' ';
     nomJourAfficher = [];
     DateSelectionner = [];
     loadPhrase = true;
-    
     
     
   /* --- Calendrier ---*/
@@ -304,6 +303,7 @@ function GenererCalendrier(m,y,c,d,he){
     
     
     var PPage = createP(nomMois[m] + ' ' + annee );
+    console.log(m);
     PPage.style('margin','0px');
     PPage.style('margin-left','20px');
     PPage.style('font-weight','bold');
