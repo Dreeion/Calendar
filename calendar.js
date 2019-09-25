@@ -9,6 +9,7 @@ function setup() {
     nomMois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
     HorairesExistant = ['9h00 - 9h45','9h45 - 10h30','10h30 - 11h15','11h15 - 12h00','13h30 - 14h15','14h15 - 15h00','15h00 - 15h45','15h45 - 16h30','16h30 - 17h15','17h15 - 18h00','18h00 - 18h45','18h45 - 19h30'];
     Phrase = [];
+    Phrase[1]= ' ';
     nomJourAfficher = [];
     DateSelectionner = [];
     loadPhrase = true;
@@ -123,7 +124,7 @@ function setup() {
   Psemaine.position(415, 125);
   Psemaine.style('font-family','Cooper Hewitt');
 
-  var Pchamp = createP('Champs Obligatoires *').size(700, 50);
+  var Pchamp = createP('Champs Obligatoires *').size(200, 20);
   Pchamp.style('margin','0px');
   Pchamp.style('margin-left','20px');
   Pchamp.style('font-size','15');
@@ -311,6 +312,16 @@ function GenererCalendrier(m,y,c,d,he){
     PPage.position(500, 90);
     PPage.id('PPage');
 
+    if (loadPhrase){
+      Phrase[1] = nomJourAfficher[d];
+     if (Phrase[1] == null) {Phrase[1] = ' ' ;}
+     Phrase[2] = d;
+     Phrase[3] = nomMois[m];
+     Phrase[4] = annee;
+     Phrase[5] = HorairesExistant[he-1];
+     loadPhrase=false
+     }
+
     for (var yc=0; yc<6;){
     	for (var xc=0; xc<7; xc=xc+1){
     	if ( yc==0 && xc<nbJoursTotal){exist=true;}
@@ -325,7 +336,7 @@ function GenererCalendrier(m,y,c,d,he){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
-                if (i==da){button.style('background-color', ' #0089fd');}
+                if (i==da && nomMois[m]== Phrase[3] && annee== Phrase[4]){button.style('background-color', ' #0089fd');}
                 button.style('cursor','pointer');
                 button.id('day' + i);
                 nomJourAfficher[i]=nomJour[xc];
@@ -357,14 +368,7 @@ function GenererCalendrier(m,y,c,d,he){
                 button.mousePressed(selectionHoraire);
         }
     }
-   if (loadPhrase){
-	   Phrase[1] = nomJourAfficher[d];
-	   Phrase[2] = d;
-	   Phrase[3] = nomMois[m];
-	   Phrase[4] = annee;
-	   Phrase[5] = HorairesExistant[he-1];
-	   loadPhrase=false
-	   }
+
    phrase.remove(); 
   /*var Pselection = createP('Prendre rendez-vous pour le '+ nomJourAfficher[d] + ' ' + d + ' ' + nomMois[m] + ' ' + annee + ' de ' + HorairesExistant[he-1] +' ?');*/
   
