@@ -177,15 +177,16 @@ function ajouterMois(){
 
 function effacerPage() {
   PPage.remove();buttonG.remove();buttonD.remove();phrase.remove(); 
-  /*day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
+  day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
   day7.remove();day8.remove();day9.remove();day10.remove();day11.remove();day12.remove();
   day13.remove();day14.remove();day15.remove();day16.remove();day17.remove();day18.remove();
   day19.remove();day20.remove();day21.remove();day22.remove();day23.remove();day24.remove();
   day25.remove();day26.remove();day27.remove();day28.remove();
   if (typeof(day29) !== 'undefined' ){day29.remove();}
   if (typeof(day30) !== 'undefined' ){day30.remove();}
-  if (typeof(day31) !== 'undefined' ){day31.remove();}*/
-  date.remove();
+  if (typeof(day31) !== 'undefined' ){day31.remove();}
+  
+  /*date.remove();*/
   
   
 }
@@ -296,10 +297,6 @@ function GenererCalendrier(m,y,c,d){
     PPage.position(500, 90);
     PPage.id('PPage');
 
-
-    div1 = createDiv("sjuvgvs") ;
-    div1.id();   
-    
     for (var yc=0; yc<6;){
     	for (var xc=0; xc<7; xc=xc+1){
     	if ( yc==0 && xc<nbJoursTotal){exist=true;}
@@ -316,7 +313,7 @@ function GenererCalendrier(m,y,c,d){
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
                 button.style('cursor','pointer');
-                button.id(xc + 'day' + i);
+                button.id('day' + i);
                 button.class("date");
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
