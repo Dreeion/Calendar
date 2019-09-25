@@ -28,6 +28,7 @@ function setup() {
   inpNom.style('margin','2');
   inpNom.style('margin-left','10');
   inpNom.style('margin-bottom','24');
+  inpNom.style('padding-left','5');
   inpNom.style('border-radius','10px');
   inpNom.style('border-color','#cce3ce');
   inpNom.style('border-width','2px');
@@ -44,6 +45,7 @@ function setup() {
   var inpPrenom = createInput('','required').size(AUTO, 35);
   inpPrenom.style('margin','2');
   inpPrenom.style('margin-left','10');
+  inpPrenom.style('padding-left','5');
   inpPrenom.style('margin-bottom','24');
   inpPrenom.style('border-radius','10px');
   inpPrenom.style('border-color','#cce3ce');
@@ -60,6 +62,7 @@ function setup() {
   var inpTel = createInput('','required').size(AUTO, 35);
   inpTel.style('margin','2');
   inpTel.style('margin-left','10');
+  inpTel.style('padding-left','5');
   inpTel.style('margin-bottom','24');
   inpTel.style('border-radius','10px');
   inpTel.style('border-color','#cce3ce');
@@ -77,6 +80,7 @@ function setup() {
   inpEmail.style('margin','2');
   inpEmail.style('margin-left','10');
   inpEmail.style('margin-bottom','24');
+  inpEmail.style('padding-left','5');
   inpEmail.style('border-radius','10px');
   inpEmail.style('border-color','#cce3ce');
   inpEmail.style('border-width','2px');
@@ -124,30 +128,11 @@ function setup() {
   Pchamp.style('font-size','15');
   Pchamp.style('opacity', '0.5');
   Pchamp.style('z-index','3');
-  Pchamp.position(45, 365);
+  Pchamp.position(45, 350);
   Pchamp.style('font-family','Cooper Hewitt');
 
-
-  ronvert = createButton(' ');
-  ronvert.position(795, 440);
-  ronvert.size(15, 15);
-  ronvert.style('border-radius', '50%');
-  ronvert.style('border-color', '#cce3ce');
-  ronvert.style('border-width', '1px');
-  ronvert.style('border-style', 'solid');
-  ronvert.style('background-color', '#cce3ce');
-
-  var Pdateheuredispo = createP('Dates et heures disponibles').size(700, 50);
-  Pdateheuredispo.style('margin','0px');
-  Pdateheuredispo.style('margin-left','20px');
-  Pdateheuredispo.style('font-size','15');
-  Pdateheuredispo.style('opacity', '0.5');
-  Pdateheuredispo.style('z-index','3');
-  Pdateheuredispo.position(800, 440);
-  Pdateheuredispo.style('fon-faily','Cooper Hewitt');
-
   ronbleu = createButton(' ');
-  ronbleu.position(595, 440);
+  ronbleu.position(735, 440);
   ronbleu.size(15, 15);
   ronbleu.style('border-radius', '50%');
   ronbleu.style('border-color', '#cce3ce');
@@ -155,14 +140,32 @@ function setup() {
   ronbleu.style('border-style', 'solid');
   ronbleu.style('background-color', '#cce3ce');
 
-  var Pdateheureselec = createP('Date et heure sélectionnée').size(700, 50);
+  var Pdateheureselec = createP('Date et heure sélectionnée').size(150, 25);
   Pdateheureselec.style('margin','0px');
   Pdateheureselec.style('margin-left','20px');
   Pdateheureselec.style('font-size','15');
   Pdateheureselec.style('opacity', '0.5');
   Pdateheureselec.style('z-index','3');
-  Pdateheureselec.position(600, 440);
+  Pdateheureselec.position(740, 440);
   Pdateheureselec.style('font-family','Cooper Hewitt');
+
+  ronvert = createButton(' ');
+  ronvert.position(860, 440);
+  ronvert.size(15, 15);
+  ronvert.style('border-radius', '50%');
+  ronvert.style('border-color', '#cce3ce');
+  ronvert.style('border-width', '1px');
+  ronvert.style('border-style', 'solid');
+  ronvert.style('background-color', '#cce3ce');
+
+  var Pdateheuredispo = createP('Dates et heures disponibles').size(150, 25);
+  Pdateheuredispo.style('margin','0px');
+  Pdateheuredispo.style('margin-left','20px');
+  Pdateheuredispo.style('font-size','15');
+  Pdateheuredispo.style('opacity', '0.5');
+  Pdateheuredispo.style('z-index','3');
+  Pdateheuredispo.position(865, 440);
+  Pdateheuredispo.style('fon-faily','Cooper Hewitt');
   
   button.mousePressed();
   
@@ -318,12 +321,14 @@ function GenererCalendrier(m,y,c,d,he){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
+                if (i==da){button.style('background-color', '0,0,255');}
                 button.style('cursor','pointer');
                 button.id('day' + i);
                 nomJourAfficher[i]=nomJour[xc];
                 console.log(nomJourAfficher[i]);
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
+
                 
             }
             exist=false;
