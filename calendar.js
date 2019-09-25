@@ -342,8 +342,6 @@ function GenererCalendrier(m,y,c,d,he){
                 nomJourAfficher[i]=nomJour[xc];
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
-
-                
             }
             exist=false;
         }
