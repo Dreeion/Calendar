@@ -136,10 +136,10 @@ function setup() {
   ronbleu.position(735, 440);
   ronbleu.size(15, 15);
   ronbleu.style('border-radius', '50%');
-  ronbleu.style('border-color', '#cce3ce');
+  ronbleu.style('border-color', '#0089fd');
   ronbleu.style('border-width', '1px');
   ronbleu.style('border-style', 'solid');
-  ronbleu.style('background-color', '#cce3ce');
+  ronbleu.style('background-color', '#0089fd')
 
   var Pdateheureselec = createP('Date et heure sélectionnée').size(150, 25);
   Pdateheureselec.style('margin','0px');
@@ -325,7 +325,7 @@ function GenererCalendrier(m,y,c,d,he){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
-                if (i==da){button.style('background-color', '0,0,255');}
+                if (i==da){button.style('background-color', ' #0089fd');}
                 button.style('cursor','pointer');
                 button.id('day' + i);
                 nomJourAfficher[i]=nomJour[xc];
