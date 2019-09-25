@@ -5,6 +5,7 @@ function setup() {
     direction = 0;
     nomJour = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
     nomMois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    nomJourAfficher = [];
   /* --- Calendrier ---*/
   GenererCalendrier(m,y,0,d);
   /* --- Formulaires ---*/
@@ -194,13 +195,13 @@ function effacerPage() {
 function selectionJour() {
 	 m = month();
 	 y= year();
-	 d="";
+	 var da="";
 	 var char = "";
 	 char = this.id().split('');
-	 if (char[5]==null){char[5]=" "}
-	 d=(char[4]+char[5]);
+	 if (char[4]==null){da=char[3];}
+	 else {da=(char[3]+char[4]);}
 	 effacerPage();
-	 GenererCalendrier(m,y,0,d);
+	 GenererCalendrier(m,y,0,da);
 
 }
 
@@ -301,7 +302,6 @@ function GenererCalendrier(m,y,c,d){
     	for (var xc=0; xc<7; xc=xc+1){
     	if ( yc==0 && xc<nbJoursTotal){exist=true;}
           if (!exist){
-            
                 button = createButton(i);
                 if (yc==0 && nbJoursTotal==0 && i==1){xc=0;}
                 button.position(xc*42+430, yc*47+150);
@@ -314,7 +314,8 @@ function GenererCalendrier(m,y,c,d){
                 button.style('background-color', '#FFF');
                 button.style('cursor','pointer');
                 button.id('day' + i);
-                button.class("date");
+                nomJourAfficher[i]=nomJour[xc];
+                console.log(nomJourAfficher[i]);
                 i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
                 button.mousePressed(selectionJour);
                 
@@ -346,7 +347,7 @@ function GenererCalendrier(m,y,c,d){
     
     
    phrase.remove(); 
-    var Pselection = createP('Prendre rendez-vous pour le Lundi '+ d + ' ' + nomMois[m] + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
+    var Pselection = createP('Prendre rendez-vous pour le '+ nomJourAfficher[d] + ' ' + d + ' ' + nomMois[m] + ' ' + annee + ' ' + 'de 13h45 à 14h45.');
   Pselection.style('margin','0px');
   Pselection.style('margin-left','20px');
   Pselection.style('font-weight','bold');
