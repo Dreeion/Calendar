@@ -137,10 +137,10 @@ function setup() {
   ronbleu.position(735, 440);
   ronbleu.size(15, 15);
   ronbleu.style('border-radius', '50%');
-  ronbleu.style('border-color', '#0089fd');
+  ronbleu.style('border-color', 'rgb(179, 225, 247)');
   ronbleu.style('border-width', '1px');
   ronbleu.style('border-style', 'solid');
-  ronbleu.style('background-color', '#0089fd')
+  ronbleu.style('background-color', 'rgb(179, 225, 247)')
 
   var Pdateheureselec = createP('Date et heure sélectionnée').size(150, 25);
   Pdateheureselec.style('margin','0px');
@@ -336,7 +336,7 @@ function GenererCalendrier(m,y,c,d,he){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
-                if (i==da && nomMois[m]== Phrase[3] && annee== Phrase[4]){button.style('background-color', ' #0089fd');}
+                if (i==da && nomMois[m]== Phrase[3] && annee== Phrase[4]){button.style('background-color', ' rgb(179, 225, 247)');}
                 button.style('cursor','pointer');
                 button.id('day' + i);
                 nomJourAfficher[i]=nomJour[xc];
@@ -362,6 +362,7 @@ function GenererCalendrier(m,y,c,d,he){
                 button.style('border-width', '2px');
                 button.style('border-style', 'solid');
                 button.style('background-color', '#FFF');
+                if (i==he ){button.style('background-color', ' rgb(179, 225, 247)');}
                 button.style('cursor','pointer');
                 button.id('heure' + i);
                 i=i+1; 
