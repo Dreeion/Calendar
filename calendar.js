@@ -5,7 +5,7 @@ function setup() {
     da = day();
     he = 1;
     direction = 0;
-    nomJour = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+    nomJour = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
     nomMois = [' ','Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
     HorairesExistant = ['9h00 à 9h45','9h45 à 10h30','10h45 à 11h30','11h30 à 12h30','13h30 à 14h45','14h45 à 15h30','15h45 à 16h30','16h30 à 17h15','17h15 à 18h00','18h00 à 18h45','18h45 à 19h30','19h30 à 20h15'];
     Phrase = [];
@@ -89,7 +89,7 @@ function setup() {
   inpEmail.input(myInputEvent);
   
   button = createButton('Envoyer');
-  button.position(265, 385);
+  button.position(150, 440);
   button.size(AUTO, 30);
   button.style('border-radius', '10px');
   button.style('border-color', '#cce3ce');
@@ -131,7 +131,18 @@ function setup() {
   Pchamp.style('z-index','3');
   Pchamp.position(45, 350);
   Pchamp.style('font-family','Cooper Hewitt');
-
+  
+  var PRDV = createP('Prendre rendez-vous pour le');
+  PRDV.style('margin','0px');
+  PRDV.style('margin-left','20px');
+  PRDV.style('font-weight','bold');
+  PRDV.style('font-family','Cooper Hewitt');
+  PRDV.style('z-index','3');
+  PRDV.style('text-align', 'center');
+  PRDV.position(30, 380);
+  PRDV.size(300, AUTO);
+  
+  
   ronbleu = createButton(' ');
   ronbleu.position(735, 440);
   ronbleu.size(15, 15);
@@ -371,14 +382,16 @@ function GenererCalendrier(m,y,c,d,he){
    phrase.remove(); 
   /*var Pselection = createP('Prendre rendez-vous pour le '+ nomJourAfficher[d] + ' ' + d + ' ' + nomMois[m] + ' ' + annee + ' de ' + HorairesExistant[he-1] +' ?');*/
   
-  var Pselection = createP('Prendre rendez-vous pour le '+ Phrase[1] + ' ' + Phrase[2] + ' ' + Phrase[3] + ' ' + Phrase[4] + ' de ' + Phrase[5] +' ?');
+  var Pselection = createP(Phrase[1] + ' ' + Phrase[2] + ' ' + Phrase[3] + ' ' + Phrase[4] + ' de ' + Phrase[5] +' ?');
   
   Pselection.style('margin','0px');
   Pselection.style('margin-left','20px');
   Pselection.style('font-weight','bold');
   Pselection.style('font-family','Cooper Hewitt');
   Pselection.style('z-index','3');
-  Pselection.position(270, 480);
+  Pselection.style('text-align', 'center');
+  Pselection.position(27, 402);
+  Pselection.size(330, AUTO);
   Pselection.id('phrase');
   
   
