@@ -3,6 +3,10 @@ function setup() {
     y = year();
     d = day();
     da = day();
+    nom_select = "";
+    prneom_select = "";
+    mail_select = "";
+    telephone_select = "";
     he = 1;
     direction = 0;
     nomJour = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
@@ -34,7 +38,7 @@ function setup() {
   inpNom.style('border-color','#cce3ce');
   inpNom.style('border-width','2px');
   inpNom.style('border-style','solid');
-  inpNom.input(myInputEvent);
+  inpNom.input(nom);
   
   
   var PPrenom = createP('Prénom*');
@@ -52,7 +56,7 @@ function setup() {
   inpPrenom.style('border-color','#cce3ce');
   inpPrenom.style('border-width','2px');
   inpPrenom.style('border-style','solid');
-  inpPrenom.input(myInputEvent);
+  inpPrenom.input(prenom);
   
   var PTel = createP('Numéro de téléphone*');
   PTel.style('margin','0px');
@@ -69,7 +73,7 @@ function setup() {
   inpTel.style('border-color','#cce3ce');
   inpTel.style('border-width','2px');
   inpTel.style('border-style','solid');
-  inpTel.input(myInputEvent);
+  inpTel.input(telephone);
   
   var PEmail = createP('Email*');
   PEmail.style('margin','0px');
@@ -86,18 +90,19 @@ function setup() {
   inpEmail.style('border-color','#cce3ce');
   inpEmail.style('border-width','2px');
   inpEmail.style('border-style','solid');
-  inpEmail.input(myInputEvent);
+  inpEmail.input(mail);
   
-  button = createButton('Envoyer');
-  button.position(150, 440);
-  button.size(AUTO, 30);
-  button.style('border-radius', '10px');
-  button.style('border-color', '#cce3ce');
-  button.style('border-width', '2px');
-  button.style('border-style', 'solid');
-  button.style('background-color', '#cce3ce');
-  button.style('cursor','pointer');
-  button.style('font-family','Cooper Hewitt');
+  var envoyer = createButton('Envoyer');
+    envoyer.mousePressed(send);
+    envoyer.position(150, 440);
+    envoyer.size(AUTO, 30);
+    envoyer.style('border-radius', '10px');
+    envoyer.style('border-color', '#cce3ce');
+    envoyer.style('border-width', '2px');
+    envoyer.style('border-style', 'solid');
+    envoyer.style('background-color', '#cce3ce');
+    envoyer.style('cursor','pointer');
+    envoyer.style('font-family','Cooper Hewitt');
 
   var dtDispo = createP('Dates disponibles').position(400,AUTO);
   dtDispo.style('margin','0px');
@@ -318,7 +323,7 @@ function GenererCalendrier(m,y,c,d,he){
     
     
     var PPage = createP(nomMois[m] + ' ' + annee );
-    console.log(m);
+    //console.log(m);
     PPage.style('margin','0px');
     PPage.style('margin-left','20px');
     PPage.style('font-weight','bold');
@@ -433,5 +438,42 @@ function nb_Jours(m,y){
     if (m===2 && y%4 == 0 && y%100 != 0 || m===2 && y%400 ==0){return 29;}
     if (m===2){return 28;}
     if (m===4 || m==6 || m==9 || m==11){return 30;}
-  
+
+}
+
+function send() {
+    $.ajax({
+        type: 'POST',
+        data: {
+            prenom : 'prenom',
+            nom : 'nom',
+            annee : 'Phrase[3]',
+            mois : 'Phrase[2]',
+            jour : 'Phrase[1]',
+            horaire : 'Phrase[4]',
+            telephone : 'telephone',
+            mail : 'mail'
+        },
+        url: "index.php",
+        success : function(x) {
+            var y = x;
+            console.log(y);
+        }
+    });
+}
+
+function prenom() {
+    prenom_select = this.value();
+}
+
+function nom() {
+    nom_select = this.value();
+}
+
+function telephone() {
+    telephone_select = this.value();
+}
+
+function mail() {
+    mail_select = this.value();
 }
