@@ -196,16 +196,20 @@ function ajouterMois(){
 
 function effacerPage() {
   PPage.remove();buttonG.remove();buttonD.remove();phrase.remove(); 
-  day1.remove();day2.remove();day3.remove();day4.remove();day5.remove();day6.remove();
-  day7.remove();day8.remove();day9.remove();day10.remove();day11.remove();day12.remove();
-  day13.remove();day14.remove();day15.remove();day16.remove();day17.remove();day18.remove();
-  day19.remove();day20.remove();day21.remove();day22.remove();day23.remove();day24.remove();
-  day25.remove();day26.remove();day27.remove();day28.remove();
+  for(var i=1;i<=28;i++){
+	  var d = document.querySelector("#day"+i);
+	  d.remove();
+  }
+  
   if (typeof(day29) !== 'undefined' ){day29.remove();}
   if (typeof(day30) !== 'undefined' ){day30.remove();}
   if (typeof(day31) !== 'undefined' ){day31.remove();}
-  heure1.remove();heure2.remove();heure3.remove();heure4.remove();heure5.remove();heure6.remove();
-  heure7.remove();heure8.remove();heure9.remove();heure10.remove();heure11.remove();heure12.remove();
+  
+  for(var i=1;i<=12;i++){
+	  var h = document.querySelector("#heure"+i);
+	  h.remove();
+  }
+
   
 }
 
@@ -359,8 +363,8 @@ function GenererCalendrier(m,y,c,d,he){
         yc=yc+1;
     }
     i = 1;
-   for (var xh=0; xh<2;xh=xh+1){
-        for (var yh=0; yh<6; yh=yh+1){
+   for (var xh=0; xh<2;xh++){
+        for (var yh=0; yh<6; yh++){
                 button = createButton(HorairesExistant[i-1]);
                 button.position(xh*112+757, yh*47+150);
                 button.style('z-index','3');
