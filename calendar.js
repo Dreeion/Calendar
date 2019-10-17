@@ -184,15 +184,11 @@ function setup() {
 	  Pdateheuredispo.style('z-index','3');
 	  Pdateheuredispo.position(865, 440);
 	  Pdateheuredispo.style('fon-faily','Cooper Hewitt');
-  
-  button.mousePressed();
-  
 }
 
 function enleverMois(){
 	effacerPage();
 	GenererCalendrier(m,y,-1,da,he);
-
 }
 
 function ajouterMois(){
@@ -206,11 +202,11 @@ function effacerPage() {
 	  var d = document.querySelector("#day"+i);
 	  d.remove();
   }
-  
+
   if (typeof(day29) !== 'undefined' ){day29.remove();}
   if (typeof(day30) !== 'undefined' ){day30.remove();}
   if (typeof(day31) !== 'undefined' ){day31.remove();}
-  
+
   for(var i=1;i<=12;i++){
 	  var h = document.querySelector("#heure"+i);
 	  h.remove();
@@ -228,18 +224,16 @@ function selectionJour() {
 	 effacerPage();
 	 loadPhrase = true;
 	 GenererCalendrier(m,y,0,da,he);
-
 }
 
 function selectionHoraire() {
-	 var char = "";
-	 char = this.id().split('');
-	 if (char[6]==null){he=char[5];}
-	 else {he=(char[5]+char[6]);}
-	 loadPhrase = true;
-	 effacerPage();
-	 GenererCalendrier(m,y,0,da,he);
-
+	var char = "";
+	char = this.id().split('');
+	if (char[6]==null){he=char[5];}
+	else {he=(char[5]+char[6]);}
+	loadPhrase = true;
+	effacerPage();
+	GenererCalendrier(m,y,0,da,he);
 }
 
 function myInputEvent() {
@@ -297,37 +291,37 @@ function GenererCalendrier(m,y,c,d,he){
   buttonD.style('cursor','pointer');
   buttonD.mousePressed(ajouterMois);
   
-    var mois = nomMois[m];
-    
-     
-    stroke("#cce3ce");strokeWeight(2);
-    
-    exist = true;
-    var nbJoursMois = 31;
-    
-    direction = direction + c;
-    
-    m = m + direction;
-    for (m;m > 12 || m <1;) {
-      if (m>12){m=m-12;y=y+1;
-      }
-      if (m<1){m=m+12;y=y-1;
-      }
-    }
+  var mois = nomMois[m];
 
-    i = 1;
-    
-    if (y==2018 && m==01){
-    	buttonG.remove();
-    	}
-    
-    nbJoursMois = nb_Jours(m,y);
-    joursRestant = nbJoursMois%7; 
-    
-   nbJoursTotal = buttonExist(y+1,m);
-    
-    if ( yc===0 && xc<buttonExist(y,m)){exist = false;}
-    
+
+  stroke("#cce3ce");strokeWeight(2);
+
+  exist = true;
+  var nbJoursMois = 31;
+
+  direction = direction + c;
+
+  m = m + direction;
+  for (m;m > 12 || m <1;) {
+	  if (m>12){m=m-12;y=y+1;
+	  }
+	  if (m<1){m=m+12;y=y-1;
+	  }
+  }
+
+  i = 1;
+
+  if (y==2018 && m==01){
+	  buttonG.remove();
+  }
+
+  nbJoursMois = nb_Jours(m,y);
+  joursRestant = nbJoursMois%7; 
+
+  nbJoursTotal = buttonExist(y+1,m);
+
+  if ( yc===0 && xc<buttonExist(y,m)){exist = false;}
+
     var PPage = createP(nomMois[m] + ' ' + annee );
 	    PPage.style('margin','0px');
 	    PPage.style('margin-left','20px');
@@ -337,60 +331,60 @@ function GenererCalendrier(m,y,c,d,he){
 	    PPage.position(500, 90);
 	    PPage.id('PPage');
 
-    if (loadPhrase){
-      Phrase[1] = nomJourAfficher[d];
-     if (Phrase[1] == null) {Phrase[1] = ' ' ;}
-     Phrase[2] = d;
-     Phrase[3] = nomMois[m];
-     Phrase[4] = annee;
-     Phrase[5] = HorairesExistant[he-1];
-     loadPhrase=false
-     }
+	    if (loadPhrase){
+	    	Phrase[1] = nomJourAfficher[d];
+	    	if (Phrase[1] == null) {Phrase[1] = ' ' ;}
+	    	Phrase[2] = d;
+	    	Phrase[3] = nomMois[m];
+	    	Phrase[4] = annee;
+	    	Phrase[5] = HorairesExistant[he-1];
+	    	loadPhrase=false
+	    }
 
     for (var yc=0; yc<6;){
     	for (var xc=0; xc<7; xc=xc+1){
-    	if ( yc==0 && xc<nbJoursTotal){exist=true;}
-          if (!exist){
-                button = createButton(i);
-                if (yc==0 && nbJoursTotal==0 && i==1){xc=0;}
-                button.position(xc*42+430, yc*47+150);
-                button.style('z-index','3');
-                button.size(32, 32);
-                button.style('border-radius', '25px');
-                button.style('border-color', '#cce3ce');
-                button.style('border-width', '2px');
-                button.style('border-style', 'solid');
-                button.style('background-color', '#FFF');
-                if (i==da && nomMois[m]== Phrase[3] && annee== Phrase[4]){button.style('background-color', ' rgb(179, 225, 247)');}
-                button.style('cursor','pointer');
-                button.id('day' + i);
-                nomJourAfficher[i]=nomJour[xc];
-                i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
-                button.mousePressed(selectionJour);
-            }
-            exist=false;
-        }
+    		if ( yc==0 && xc<nbJoursTotal){exist=true;}
+    		if (!exist){
+    			button = createButton(i);
+    			if (yc==0 && nbJoursTotal==0 && i==1){xc=0;}
+    			button.position(xc*42+430, yc*47+150);
+    			button.style('z-index','3');
+    			button.size(32, 32);
+    			button.style('border-radius', '25px');
+    			button.style('border-color', '#cce3ce');
+    			button.style('border-width', '2px');
+    			button.style('border-style', 'solid');
+    			button.style('background-color', '#FFF');
+    			if (i==da && nomMois[m]== Phrase[3] && annee== Phrase[4]){button.style('background-color', ' rgb(179, 225, 247)');}
+    			button.style('cursor','pointer');
+    			button.id('day' + i);
+    			nomJourAfficher[i]=nomJour[xc];
+    			i=i+1;if (i>nb_Jours(m,y)){yc=10; xc=7;}  
+    			button.mousePressed(selectionJour);
+    		}
+    		exist=false;
+    	}
         yc=yc+1;
     }
     i = 1;
-   for (var xh=0; xh<2;xh++){
-        for (var yh=0; yh<6; yh++){
-                button = createButton(HorairesExistant[i-1]);
-                button.position(xh*112+757, yh*47+150);
-                button.style('z-index','3');
-                button.style('font-family','Cooper Hewitt');
-                button.size(102, 32);
-                button.style('border-radius', '25px');
-                button.style('border-color', '#cce3ce');
-                button.style('border-width', '2px');
-                button.style('border-style', 'solid');
-                button.style('background-color', '#FFF');
-                if (i==he ){button.style('background-color', ' rgb(179, 225, 247)');}
-                button.style('cursor','pointer');
-                button.id('heure' + i);
-                i=i+1; 
-                button.mousePressed(selectionHoraire);
-        }
+    for (var xh=0; xh<2;xh++){
+    	for (var yh=0; yh<6; yh++){
+    		button = createButton(HorairesExistant[i-1]);
+    		button.position(xh*112+757, yh*47+150);
+    		button.style('z-index','3');
+    		button.style('font-family','Cooper Hewitt');
+    		button.size(102, 32);
+    		button.style('border-radius', '25px');
+    		button.style('border-color', '#cce3ce');
+    		button.style('border-width', '2px');
+    		button.style('border-style', 'solid');
+    		button.style('background-color', '#FFF');
+    		if (i==he ){button.style('background-color', ' rgb(179, 225, 247)');}
+    		button.style('cursor','pointer');
+    		button.id('heure' + i);
+    		i=i+1; 
+    		button.mousePressed(selectionHoraire);
+    	}
     }
 
   phrase.remove(); 
@@ -407,26 +401,28 @@ function GenererCalendrier(m,y,c,d,he){
 }
 
 function buttonExist(y,m){
-  mois=0;
-  annee=2018;
-  nbJoursTotal=0;
-  nbDecal = 0;
-  nbMois =  m + (y - 2019)*12;
-  
-  for (var i = 0;i<nbMois;i++){
-    mois=mois+1;
+	mois=0;
+	annee=2018;
+	nbJoursTotal=0;
+	nbDecal = 0;
+	nbMois =  m + (y - 2019)*12;
+
+	for (var i = 0;i<nbMois;i++){
+	  mois=mois+1;
     
     if(mois>12){
-      mois=1;
-      annee=annee+1;
-      }
+    	mois=1;
+    	annee=annee+1;
+    }
     
-    if (i===nbMois-1){nbDecal = nbJoursTotal}
+    if (i===nbMois-1){
+    	nbDecal = nbJoursTotal
+    }
     nbJoursTotal = nbJoursTotal + nb_Jours(mois,annee);
-    
-    if (nbJoursTotal>6){nbJoursTotal=nbJoursTotal%7;}
-     
-    
+
+    if (nbJoursTotal>6){
+    	nbJoursTotal=nbJoursTotal%7;
+    }
   }
   
   return nbDecal;
@@ -437,7 +433,6 @@ function nb_Jours(m,y){
     if (m===2 && y%4 == 0 && y%100 != 0 || m===2 && y%400 ==0){return 29;}
     if (m===2){return 28;}
     if (m===4 || m==6 || m==9 || m==11){return 30;}
-
 }
 
 function send() {
