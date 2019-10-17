@@ -28,130 +28,125 @@ function setup() {
   /* --- Générer le Calendrier ---*/
   GenererCalendrier(m,y,0,d,he);
   
-  /* --- Générer les Formulaires ---*/
+  /* --- Générer les Inputs ---*/
   var Pnom = createP('Nom*');
-  Pnom.style('margin','0px');
-  Pnom.style('margin-left','20px');
-  Pnom.style('font-weight','bold');
-  Pnom.style('font-family','Cooper Hewitt');
-  
+  	  Pnom.style('margin','0px');
+  	  Pnom.style('margin-left','20px');
+  	  Pnom.style('font-weight','bold');
+  	  Pnom.style('font-family','Cooper Hewitt');
   var inpNom = createInput('','required').size(AUTO, 35);
-  inpNom.style('margin','2');
-  inpNom.style('margin-left','10');
-  inpNom.style('margin-bottom','24');
-  inpNom.style('padding-left','5');
-  inpNom.style('border-radius','10px');
-  inpNom.style('border-color','#cce3ce');
-  inpNom.style('border-width','2px');
-  inpNom.style('border-style','solid');
-  inpNom.input(nom);
-  
+  	  inpNom.style('margin','2');
+  	  inpNom.style('margin-left','10');
+  	  inpNom.style('margin-bottom','24');
+  	  inpNom.style('padding-left','5');
+  	  inpNom.style('border-radius','10px');
+  	  inpNom.style('border-color','#cce3ce');
+  	  inpNom.style('border-width','2px');
+  	  inpNom.style('border-style','solid');
+  	  inpNom.input(nom);
   
   var PPrenom = createP('Prénom*');
-  PPrenom.style('margin','0px');
-  PPrenom.style('margin-left','20px');
-  PPrenom.style('font-weight','bold');
-  PPrenom.style('font-family','Cooper Hewitt');
-  
+  	  PPrenom.style('margin','0px');
+  	  PPrenom.style('margin-left','20px');
+  	  PPrenom.style('font-weight','bold');
+  	  PPrenom.style('font-family','Cooper Hewitt');
   var inpPrenom = createInput('','required').size(AUTO, 35);
-  inpPrenom.style('margin','2');
-  inpPrenom.style('margin-left','10');
-  inpPrenom.style('padding-left','5');
-  inpPrenom.style('margin-bottom','24');
-  inpPrenom.style('border-radius','10px');
-  inpPrenom.style('border-color','#cce3ce');
-  inpPrenom.style('border-width','2px');
-  inpPrenom.style('border-style','solid');
-  inpPrenom.input(prenom);
+  	  inpPrenom.style('margin','2');
+  	  inpPrenom.style('margin-left','10');
+  	  inpPrenom.style('padding-left','5');
+  	  inpPrenom.style('margin-bottom','24');
+  	  inpPrenom.style('border-radius','10px');
+  	  inpPrenom.style('border-color','#cce3ce');
+  	  inpPrenom.style('border-width','2px');
+  	  inpPrenom.style('border-style','solid');
+  	  inpPrenom.input(prenom);
   
   var PTel = createP('Numéro de téléphone*');
-  PTel.style('margin','0px');
-  PTel.style('margin-left','20px');
-  PTel.style('font-weight','bold');
-  PTel.style('font-family','Cooper Hewitt');
-  
+  	  PTel.style('margin','0px');
+  	  PTel.style('margin-left','20px');
+  	  PTel.style('font-weight','bold');
+  	  PTel.style('font-family','Cooper Hewitt');
   var inpTel = createInput('','required').size(AUTO, 35);
-  inpTel.style('margin','2');
-  inpTel.style('margin-left','10');
-  inpTel.style('padding-left','5');
-  inpTel.style('margin-bottom','24');
-  inpTel.style('border-radius','10px');
-  inpTel.style('border-color','#cce3ce');
-  inpTel.style('border-width','2px');
-  inpTel.style('border-style','solid');
-  inpTel.input(telephone);
+  	  inpTel.style('margin','2');
+  	  inpTel.style('margin-left','10');
+  	  inpTel.style('padding-left','5');
+  	  inpTel.style('margin-bottom','24');
+  	  inpTel.style('border-radius','10px');
+  	  inpTel.style('border-color','#cce3ce');
+  	  inpTel.style('border-width','2px');
+  	  inpTel.style('border-style','solid');
+  	  inpTel.input(telephone);
   
   var PEmail = createP('Email*');
-  PEmail.style('margin','0px');
-  PEmail.style('margin-left','20px');
-  PEmail.style('font-weight','bold');
-  PEmail.style('font-family','Cooper Hewitt');
-  
+  	  PEmail.style('margin','0px');
+  	  PEmail.style('margin-left','20px');
+  	  PEmail.style('font-weight','bold');
+  	  PEmail.style('font-family','Cooper Hewitt');
   var inpEmail = createInput('','required').size(AUTO, 35);
-  inpEmail.style('margin','2');
-  inpEmail.style('margin-left','10');
-  inpEmail.style('margin-bottom','24');
-  inpEmail.style('padding-left','5');
-  inpEmail.style('border-radius','10px');
-  inpEmail.style('border-color','#cce3ce');
-  inpEmail.style('border-width','2px');
-  inpEmail.style('border-style','solid');
-  inpEmail.input(mail);
+  	  inpEmail.style('margin','2');
+  	  inpEmail.style('margin-left','10');
+  	  inpEmail.style('margin-bottom','24');
+  	  inpEmail.style('padding-left','5');
+  	  inpEmail.style('border-radius','10px');
+  	  inpEmail.style('border-color','#cce3ce');
+  	  inpEmail.style('border-width','2px');
+  	  inpEmail.style('border-style','solid');
+  	  inpEmail.input(mail);
   
   var envoyer = createButton('Envoyer');
-    envoyer.mousePressed(send);
-    envoyer.position(150, 440);
-    envoyer.size(AUTO, 30);
-    envoyer.style('border-radius', '10px');
-    envoyer.style('border-color', '#cce3ce');
-    envoyer.style('border-width', '2px');
-    envoyer.style('border-style', 'solid');
-    envoyer.style('background-color', '#cce3ce');
-    envoyer.style('cursor','pointer');
-    envoyer.style('font-family','Cooper Hewitt');
-
+  	  envoyer.mousePressed(send);
+  	  envoyer.position(150, 440);
+  	  envoyer.size(AUTO, 30);
+  	  envoyer.style('border-radius', '10px');
+  	  envoyer.style('border-color', '#cce3ce');
+  	  envoyer.style('border-width', '2px');
+  	  envoyer.style('border-style', 'solid');
+  	  envoyer.style('background-color', '#cce3ce');
+  	  envoyer.style('cursor','pointer');
+  	  envoyer.style('font-family','Cooper Hewitt');
+  
   var dtDispo = createP('Dates disponibles').position(400,AUTO);
-  dtDispo.style('margin','0px');
-  dtDispo.style('margin-left','20px');
-  dtDispo.style('font-weight','bold');
-  dtDispo.position(400, 55);
-  dtDispo.style('z-index','3');
-  dtDispo.style('font-family','Cooper Hewitt');
+  	  dtDispo.style('margin','0px');
+  	  dtDispo.style('margin-left','20px');
+  	  dtDispo.style('font-weight','bold');
+  	  dtDispo.position(400, 55);
+  	  dtDispo.style('z-index','3');
+  	  dtDispo.style('font-family','Cooper Hewitt');
   
   var horairesDispo = createP('Horaires disponibles');
-  horairesDispo.style('margin','0px');
-  horairesDispo.style('margin-left','20px');
-  horairesDispo.style('font-weight','bold');
-  horairesDispo.position(775, 92);
-  horairesDispo.style('z-index','3');
-  horairesDispo.style('font-family','Cooper Hewitt');
+  	  horairesDispo.style('margin','0px');
+  	  horairesDispo.style('margin-left','20px');
+  	  horairesDispo.style('font-weight','bold');
+  	  horairesDispo.position(775, 92);
+	  horairesDispo.style('z-index','3');
+	  horairesDispo.style('font-family','Cooper Hewitt');
 
   var Psemaine = createP('lun mar mer jeu ven sam dim').size(280, 20);
-  Psemaine.style('margin','0px');
-  Psemaine.style('margin-left','20px');
-  Psemaine.style('word-spacing','14px');
-  Psemaine.style('z-index','2');
-  Psemaine.position(415, 125);
-  Psemaine.style('font-family','Cooper Hewitt');
+  	  Psemaine.style('margin','0px');
+	  Psemaine.style('margin-left','20px');
+	  Psemaine.style('word-spacing','14px');
+	  Psemaine.style('z-index','2');
+	  Psemaine.position(415, 125);
+	  Psemaine.style('font-family','Cooper Hewitt');
 
   var Pchamp = createP('Champs Obligatoires *').size(200, 20);
-  Pchamp.style('margin','0px');
-  Pchamp.style('margin-left','20px');
-  Pchamp.style('font-size','15');
-  Pchamp.style('opacity', '0.5');
-  Pchamp.style('z-index','3');
-  Pchamp.position(45, 350);
-  Pchamp.style('font-family','Cooper Hewitt');
+  	  Pchamp.style('margin','0px');
+	  Pchamp.style('margin-left','20px');
+	  Pchamp.style('font-size','15');
+	  Pchamp.style('opacity', '0.5');
+	  Pchamp.style('z-index','3');
+	  Pchamp.position(45, 350);
+	  Pchamp.style('font-family','Cooper Hewitt');
   
   var PRDV = createP('Prendre rendez-vous pour le');
-  PRDV.style('margin','0px');
-  PRDV.style('margin-left','20px');
-  PRDV.style('font-weight','bold');
-  PRDV.style('font-family','Cooper Hewitt');
-  PRDV.style('z-index','3');
-  PRDV.style('text-align', 'center');
-  PRDV.position(30, 380);
-  PRDV.size(300, AUTO);
+	  PRDV.style('margin','0px');
+	  PRDV.style('margin-left','20px');
+	  PRDV.style('font-weight','bold');
+	  PRDV.style('font-family','Cooper Hewitt');
+	  PRDV.style('z-index','3');
+	  PRDV.style('text-align', 'center');
+	  PRDV.position(30, 380);
+	  PRDV.size(300, AUTO);
   
   
   ronbleu = createButton(' ');
@@ -164,13 +159,13 @@ function setup() {
   ronbleu.style('background-color', 'rgb(179, 225, 247)')
 
   var Pdateheureselec = createP('Date et heure sélectionnée').size(150, 25);
-  Pdateheureselec.style('margin','0px');
-  Pdateheureselec.style('margin-left','20px');
-  Pdateheureselec.style('font-size','15');
-  Pdateheureselec.style('opacity', '0.5');
-  Pdateheureselec.style('z-index','3');
-  Pdateheureselec.position(740, 440);
-  Pdateheureselec.style('font-family','Cooper Hewitt');
+	  Pdateheureselec.style('margin','0px');
+	  Pdateheureselec.style('margin-left','20px');
+	  Pdateheureselec.style('font-size','15');
+	  Pdateheureselec.style('opacity', '0.5');
+	  Pdateheureselec.style('z-index','3');
+	  Pdateheureselec.position(740, 440);
+	  Pdateheureselec.style('font-family','Cooper Hewitt');
 
   ronvert = createButton(' ');
   ronvert.position(860, 440);
@@ -182,13 +177,13 @@ function setup() {
   ronvert.style('background-color', '#cce3ce');
 
   var Pdateheuredispo = createP('Dates et heures disponibles').size(150, 25);
-  Pdateheuredispo.style('margin','0px');
-  Pdateheuredispo.style('margin-left','20px');
-  Pdateheuredispo.style('font-size','15');
-  Pdateheuredispo.style('opacity', '0.5');
-  Pdateheuredispo.style('z-index','3');
-  Pdateheuredispo.position(865, 440);
-  Pdateheuredispo.style('fon-faily','Cooper Hewitt');
+	  Pdateheuredispo.style('margin','0px');
+	  Pdateheuredispo.style('margin-left','20px');
+	  Pdateheuredispo.style('font-size','15');
+	  Pdateheuredispo.style('opacity', '0.5');
+	  Pdateheuredispo.style('z-index','3');
+	  Pdateheuredispo.position(865, 440);
+	  Pdateheuredispo.style('fon-faily','Cooper Hewitt');
   
   button.mousePressed();
   
@@ -256,23 +251,24 @@ function myInputEvent() {
 function GenererCalendrier(m,y,c,d,he){
    
   var cnv = createCanvas(600, 500).position(400,50);
-  cnv.style( 'position','fixed');
-  cnv.style( 'top','50');
-  cnv.style( 'left','400');
-  cnv.style( 'z-index','1');
+	  cnv.style( 'position','fixed');
+	  cnv.style( 'top','50');
+	  cnv.style( 'left','400');
+	  cnv.style( 'z-index','1');
+  
   fill(255,255,255,0);
   stroke("#cce3ce");strokeWeight(2);
   rect(20, 30, 300, 350, 20);
   rect(340, 30, 250, 350, 20);
 
   var Pselection = createP('chargement en cours');
-  Pselection.style('margin','0px');
-  Pselection.style('margin-left','20px');
-  Pselection.style('font-weight','bold');
-  Pselection.style('z-index','3');
-  Pselection.style('font-family','Cooper Hewitt');
-  Pselection.position(255, 460);
-  Pselection.id('phrase');
+	  Pselection.style('margin','0px');
+	  Pselection.style('margin-left','20px');
+	  Pselection.style('font-weight','bold');
+	  Pselection.style('z-index','3');
+	  Pselection.style('font-family','Cooper Hewitt');
+	  Pselection.position(255, 460);
+	  Pselection.id('phrase');
   
   
   buttonG = createButton('<--');
@@ -333,13 +329,13 @@ function GenererCalendrier(m,y,c,d,he){
     if ( yc===0 && xc<buttonExist(y,m)){exist = false;}
     
     var PPage = createP(nomMois[m] + ' ' + annee );
-    PPage.style('margin','0px');
-    PPage.style('margin-left','20px');
-    PPage.style('font-weight','bold');
-    PPage.style('z-index','3');
-    PPage.style('font-family','Cooper Hewitt');
-    PPage.position(500, 90);
-    PPage.id('PPage');
+	    PPage.style('margin','0px');
+	    PPage.style('margin-left','20px');
+	    PPage.style('font-weight','bold');
+	    PPage.style('z-index','3');
+	    PPage.style('font-family','Cooper Hewitt');
+	    PPage.position(500, 90);
+	    PPage.id('PPage');
 
     if (loadPhrase){
       Phrase[1] = nomJourAfficher[d];
@@ -399,19 +395,15 @@ function GenererCalendrier(m,y,c,d,he){
 
   phrase.remove(); 
   var Pselection = createP(Phrase[1] + ' ' + Phrase[2] + ' ' + Phrase[3] + ' ' + Phrase[4] + ' de ' + Phrase[5] +' ?');
-  
-  Pselection.style('margin','0px');
-  Pselection.style('margin-left','20px');
-  Pselection.style('font-weight','bold');
-  Pselection.style('font-family','Cooper Hewitt');
-  Pselection.style('z-index','3');
-  Pselection.style('text-align', 'center');
-  Pselection.position(27, 402);
-  Pselection.size(330, AUTO);
-  Pselection.id('phrase');
-  
-  
-  
+	  Pselection.style('margin','0px');
+	  Pselection.style('margin-left','20px');
+	  Pselection.style('font-weight','bold');
+	  Pselection.style('font-family','Cooper Hewitt');
+	  Pselection.style('z-index','3');
+	  Pselection.style('text-align', 'center');
+	  Pselection.position(27, 402);
+	  Pselection.size(330, AUTO);
+	  Pselection.id('phrase');
 }
 
 function buttonExist(y,m){
