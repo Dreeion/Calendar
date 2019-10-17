@@ -255,7 +255,11 @@ function myInputEvent() {
 
 function GenererCalendrier(m,y,c,d,he){
    
-  var cnv = createCanvas(600, 500).position(400,50);;
+  var cnv = createCanvas(600, 500).position(400,50);
+  cnv.style( 'position','fixed');
+  cnv.style( 'top','50');
+  cnv.style( 'left','400');
+  cnv.style( 'z-index','1');
   fill(255,255,255,0);
   stroke("#cce3ce");strokeWeight(2);
   rect(20, 30, 300, 350, 20);
