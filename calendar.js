@@ -1,28 +1,34 @@
 function setup() { 
+	
+	/* --- --- Initialisation des variables globales --- --- */
+	
+	/* --- Récupération de la date système --- */
 	m = month();
     y = year();
     d = day();
     da = day();
+    
+    /* --- Initialisation des variables des inputs --- */
     nom_select = "";
     prneom_select = "";
     mail_select = "";
     telephone_select = "";
-    he = 1;
-    direction = 0;
+    Phrase = [];
+    Phrase[1]= ' ';
+
     nomJour = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
     nomMois = [' ','Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
     HorairesExistant = ['9h00 à 9h45','9h45 à 10h30','10h45 à 11h30','11h30 à 12h30','13h30 à 14h45','14h45 à 15h30','15h45 à 16h30','16h30 à 17h15','17h15 à 18h00','18h00 à 18h45','18h45 à 19h30','19h30 à 20h15'];
-    Phrase = [];
-    Phrase[1]= ' ';
+    
+    he = 1;
+    direction = 0;
     nomJourAfficher = [];
-    DateSelectionner = [];
     loadPhrase = true;
     
-    
-  /* --- Calendrier ---*/
+  /* --- Générer le Calendrier ---*/
   GenererCalendrier(m,y,0,d,he);
-  /* --- Formulaires ---*/
   
+  /* --- Générer les Formulaires ---*/
   var Pnom = createP('Nom*');
   Pnom.style('margin','0px');
   Pnom.style('margin-left','20px');
@@ -311,19 +317,18 @@ function GenererCalendrier(m,y,c,d,he){
 
     i = 1;
     
-    if (y==2018 && m==01){buttonG.remove();}
+    if (y==2018 && m==01){
+    	buttonG.remove();
+    	}
     
     nbJoursMois = nb_Jours(m,y);
     joursRestant = nbJoursMois%7; 
     
    nbJoursTotal = buttonExist(y+1,m);
-   
     
     if ( yc===0 && xc<buttonExist(y,m)){exist = false;}
     
-    
     var PPage = createP(nomMois[m] + ' ' + annee );
-    //console.log(m);
     PPage.style('margin','0px');
     PPage.style('margin-left','20px');
     PPage.style('font-weight','bold');
@@ -388,9 +393,7 @@ function GenererCalendrier(m,y,c,d,he){
         }
     }
 
-   phrase.remove(); 
-  /*var Pselection = createP('Prendre rendez-vous pour le '+ nomJourAfficher[d] + ' ' + d + ' ' + nomMois[m] + ' ' + annee + ' de ' + HorairesExistant[he-1] +' ?');*/
-  
+  phrase.remove(); 
   var Pselection = createP(Phrase[1] + ' ' + Phrase[2] + ' ' + Phrase[3] + ' ' + Phrase[4] + ' de ' + Phrase[5] +' ?');
   
   Pselection.style('margin','0px');
