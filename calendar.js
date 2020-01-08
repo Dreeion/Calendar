@@ -1,5 +1,5 @@
 function setup() { 
-	
+
 	/* --- --- Initialisation des variables globales --- --- */
 	
 	/* --- Récupération de la date système --- */
@@ -448,12 +448,21 @@ function send() {
             telephone : telephone_select,
             mail : mail_select
         },
-        url: "index.php",
+        url: "insert.php",
         success : function(x) {
             console.log(x);
         }
     });
 }
+
+$(document).ready(function () {
+    $.ajax({
+        url: "select.php",
+        success : function(x) {
+            console.log(x);
+        }
+    });
+});
 
 function prenom() {
     prenom_select = this.value();
@@ -470,3 +479,5 @@ function telephone() {
 function mail() {
     mail_select = this.value();
 }
+
+
