@@ -311,7 +311,7 @@ function GenererCalendrier(m,y,c,d,he){
 
   i = 1;
 
-  if (y==2018 && m==01){
+  if (y===2018 && m===01){
 	  buttonG.remove();
   }
 
@@ -429,29 +429,28 @@ function buttonExist(y,m){
 }
 
 function nb_Jours(m,y){
-    if (m===1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12){return 31;}
-    if (m===2 && y%4 == 0 && y%100 != 0 || m===2 && y%400 ==0){return 29;}
+    if (m===1 || m===3 || m===5 || m===7 || m===8 || m===10 || m===12){return 31;}
+    if (m===2 && y%4 === 0 && y%100 !== 0 || m===2 && y%400 ===0){return 29;}
     if (m===2){return 28;}
-    if (m===4 || m==6 || m==9 || m==11){return 30;}
+    if (m===4 || m===6 || m===9 || m===11){return 30;}
 }
 
 function send() {
     $.ajax({
         type: 'POST',
         data: {
-            prenom : 'prenom',
-            nom : 'nom',
-            annee : 'Phrase[3]',
-            mois : 'Phrase[2]',
-            jour : 'Phrase[1]',
-            horaire : 'Phrase[4]',
-            telephone : 'telephone',
-            mail : 'mail'
+            prenom : prenom_select,
+            nom : nom_select,
+            annee : Phrase[4],
+            mois : Phrase[3],
+            jour : Phrase[2],
+            horaire : Phrase[5],
+            telephone : telephone_select,
+            mail : mail_select
         },
         url: "index.php",
         success : function(x) {
-            var y = x;
-            console.log(y);
+            console.log(x);
         }
     });
 }
