@@ -6,11 +6,11 @@ function setup() {
 	m = month();
     y = year();
     d = day();
-    da = day();
+    da = d;
     
     /* --- Initialisation des variables des inputs --- */
     nom_select = "";
-    prneom_select = "";
+    prenom_select = "";
     mail_select = "";
     telephone_select = "";
     Phrase = [];
